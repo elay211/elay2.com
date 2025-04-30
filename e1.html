@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barış Teklifi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffe6f0, #ffccdd); /* baby pink */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    img {
+      width: 170px;
+      margin-bottom: 25px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #1f1f1f; /* siyah */
+      font-weight: 700;
+      padding: 0 20px;
+    }
+
+    .buttons {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 250px;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      position: absolute;
+      transition: top 0.1s, left 0.1s;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    #evet {
+      background-color: #ff69b4; /* pink */
+      color: #fff;
+      left: 50%;
+      top: 40px;
+      transform: translateX(-50%);
+    }
+
+    #hayir {
+      background-color: #1f1f1f; /* siyah */
+      color: #fff;
+      left: 50%;
+      top: 120px;
+      transform: translateX(-50%);
+    }
+
+    #mesaj {
+      margin-top: 40px;
+      font-size: 22px;
+      color: #ff1493; /* deep pink */
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 18px;
+      border-radius: 20px;
+      max-width: 90%;
+      display: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    @media (min-width: 600px) {
+      h2 {
+        font-size: 32px;
+      }
+
+      #mesaj {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="392c7562-dfbc-4808-865e-b60d9af11cf3.png" alt="Barış Resmi">
+  <h2>Benimle barışır mısın? 💌</h2>
+
+  <div class="buttons">
+    <button id="evet" onclick="evetTiklandi()">Evet</button>
+    <button id="hayir">Hayır</button>
+  </div>
+
+  <div id="mesaj">Yaaa 😍 İyi ki barıştık! Seninle her şey çok daha güzel 💕</div>
+
+  <script>
+    function evetTiklandi() {
+      document.getElementById("mesaj").style.display = "block";
+      document.querySelector(".buttons").style.display = "none";
+    }
+
+    const hayir = document.getElementById("hayir");
+
+    document.addEventListener("mousemove", (e) => {
+      const rect = hayir.getBoundingClientRect();
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const offset = 100;
+
+      if (
+        mouseX > rect.left - offset &&
+        mouseX < rect.right + offset &&
+        mouseY > rect.top - offset &&
+        mouseY < rect.bottom + offset
+      ) {
+        const container = document.querySelector(".buttons");
+        const maxX = container.clientWidth - hayir.offsetWidth;
+        const maxY = container.clientHeight - hayir.offsetHeight;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        hayir.style.left = `${x}px`;
+        hayir.style.top = `${y}px`;
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<! http://127.0.0.1:5500/Bar%C4%B1%C5%9F%20Teklifi/e1.html -->
